@@ -1,21 +1,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
-<aside class="w-64 bg-[#4F5869] text-white h-full fixed">
-  <nav class="py-6 space-y-4">
-    <div class="px-6 py-3 hover:bg-[#5a657a] cursor-pointer">
-      <i class="fa-solid fa-bullhorn w-5"></i><span class="ml-3">공지사항 관리</span>
-    </div>
-    <div class="px-6 py-3 hover:bg-[#5a657a] cursor-pointer">
-      <i class="fa-solid fa-box w-5"></i><span class="ml-3">상품 관리</span>
-    </div>
-    <div class="px-6 py-3 hover:bg-[#5a657a] cursor-pointer">
-      <i class="fa-solid fa-calculator w-5"></i><span class="ml-3">정산 관리</span>
-    </div>
-    <div class="px-6 py-3 hover:bg-[#5a657a] cursor-pointer">
-      <i class="fa-solid fa-chart-line w-5"></i><span class="ml-3">통계</span>
-    </div>
-    <div class="px-6 py-3 bg-[#A5193F] cursor-pointer">
-      <i class="fa-solid fa-cart-shopping w-5"></i><span class="ml-3">주문 관리</span>
-    </div>
-  </nav>
-</aside>
+
+<%
+  String uri = request.getRequestURI();  // 예: /test/order/orderList.page
+  String activeMenu = "";
+
+  if (uri.contains("/notice")) activeMenu = "notice";
+  else if (uri.contains("/product")) activeMenu = "product";
+  else if (uri.contains("/settlement")) activeMenu = "settlement";
+  else if (uri.contains("/statistics")) activeMenu = "statistics";
+  else if (uri.contains("/sales")) activeMenu = "sales";
+%>
+
+<div class="sidebar">
+  <div class="sidebar-item <%= activeMenu.equals("notice") ? "active" : "" %>" onclick="location.href='${contextPath}/notice'">
+    <i class="fas fa-bullhorn"></i>
+    <span>공지사항 관리</span>
+  </div>
+  <div class="sidebar-item <%= activeMenu.equals("product") ? "active" : "" %>" onclick="location.href='${contextPath}/product'">
+    <i class="fas fa-box"></i>
+    <span>상품 관리</span>
+  </div>
+  <div class="sidebar-item <%= activeMenu.equals("settlement") ? "active" : "" %>" onclick="location.href='${contextPath}/settlement'">
+    <i class="fas fa-calculator"></i>
+    <span>정산 관리</span>
+  </div>
+  <div class="sidebar-item <%= activeMenu.equals("statistics") ? "active" : "" %>" onclick="location.href='${contextPath}/statistics'">
+    <i class="fas fa-chart-line"></i>
+    <span>통계</span>
+  </div>
+  <div class="sidebar-item <%= activeMenu.equals("sales") ? "active" : "" %>" onclick="location.href='${contextPath}/sales'">
+    <i class="fas fa-cart-shopping"></i>
+    <span>판매 관리</span>
+  </div>
+</div>
+
