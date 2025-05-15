@@ -61,6 +61,7 @@ table>thead {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--color-primary);
+  cursor: pointer;
 }
 
 .user-info {
@@ -87,6 +88,9 @@ table>thead {
 }
 
 .sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 1rem 1.5rem;
   cursor: pointer;
 }
@@ -97,6 +101,16 @@ table>thead {
 
 .sidebar-item.active {
   background-color: var(--color-danger);
+}
+
+.sidebar-item span {
+  flex: 1;
+}
+
+.sidebar-item i {
+  ont-size: 18px; /* 아이콘 크기 통일 */
+  width: 20px;      /* 고정 너비로 정렬 */
+  text-align: center;
 }
 
 /* 메인 콘텐츠 */

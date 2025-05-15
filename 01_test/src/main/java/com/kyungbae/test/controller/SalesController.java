@@ -5,13 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/sales")
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/sales")
 public class SalesController {
 
-    @GetMapping
-    public String orderPage() {
-        return "/sales/salesList";
-    }
+    @GetMapping("/salesList.page")
+    public void salesPage(){}
 }
